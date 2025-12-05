@@ -24,7 +24,7 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     """Load the trained model pipeline."""
-    with open('ufc_fight_predictor.pkl', 'rb') as f:
+    with open('ufc_fight_predictor_ensemble.pkl', 'rb') as f:
         model = pickle.load(f)
     return model
 
@@ -143,7 +143,7 @@ def main():
         fighter_names = sorted(fighter_stats['name'].dropna().unique().tolist())
     except FileNotFoundError as e:
         st.error(f"⚠️ Required file not found: {e}")
-        st.info("Make sure 'ufc_fight_predictor.pkl' and 'ufc_fights_2019_2025_with_stats.csv' are in the app directory.")
+        st.info("Make sure 'ufc_fight_predictor_ensemble.pkl' and 'ufc_fights_2019_2025_with_stats.csv' are in the app directory.")
         return
     
     st.markdown("### Select Fighters")

@@ -209,12 +209,12 @@ def main():
         with col1:
             st.markdown(f"#### 🔴 {fighter_a_name.title()}")
             st.metric(label="Win Probability", value=f"{prob_a_wins:.1%}")
-            st.progress(prob_a_wins)
+            st.progress(float(prob_a_wins))
         
         with col2:
             st.markdown(f"#### 🔵 {fighter_b_name.title()}")
             st.metric(label="Win Probability", value=f"{prob_b_wins:.1%}")
-            st.progress(prob_b_wins)
+            st.progress(float(prob_b_wins))
         
         st.markdown("---")
         if abs(prob_a_wins - prob_b_wins) < 0.1:

@@ -14,7 +14,7 @@
 
 This project predicts the probability of a UFC fighter winning against an opponent using machine learning. Given two fighters, the model outputs the win probability for each, helping fans, analysts, and enthusiasts understand fight dynamics based on historical data.
 
-**Live Demo:** [UFC Fight Predictor App](https://your-app-url.streamlit.app)
+**Live Demo:** [UFC Fight Predictor App](https://ufcpredictionmodel-ddb9ny6kvuwxefjgkvaffu.streamlit.app/)
 
 ---
 

@@ -25,6 +25,8 @@ Predicting UFC fight outcomes has significant value for:
 - **Fight Promotion:** Matchmaking decisions for compelling matchups
 - **Fighter Training:** Strategic preparation based on opponent analysis
 - **Fan Engagement:** Enhanced viewing experience with data-driven insights
+#### We aim to present various UFC stakeholders the ability an edge in predicting the outcome of a fight for whatever listed use-case they may have. 
+#### Our specific goal is to accurately predict the probability of fighters winning their fights at a level significantly above random guessing to be able to identify edges in sportsbook market lines to make better educated betting and investing decisions. 
 
 ---
 
@@ -48,7 +50,7 @@ Binary Classification with Probability Output
 - **Target:** `fighter_a_won` (1 = Fighter A wins, 0 = Fighter B wins)
 - **Output:** P(Fighter A Wins) — probability between 0 and 1
 
-### Models Evaluated
+### Initial Models Evaluated
 | Model | Runs | Best ROC-AUC |
 |-------|------|--------------|
 | XGBoost | 20 | **0.719** |
@@ -60,20 +62,24 @@ Binary Classification with Probability Output
 | KNN | 8 | 0.635 |
 | Naive Bayes | 2 | 0.593 |
 | Ensemble (Voting/Stacking) | 8 | 0.715 |
+* Top performing initial models were subject to an additional 25 combined runs with tuned hyperparameters.
+* Best performing tuned models were subject to an additional 6 combinations of ensemble model runs.
 
 ### Best Model
-**XGBoost Classifier** with hyperparameter tuning:
-- `n_estimators`: 100
-- `learning_rate`: 0.1
-- `max_depth`: 4
-- `reg_lambda`: 5 (L2 regularization)
+**Ensemble_Tuned_WeightedVoting** including the following models:
+XGB_l5
+XGB_a0.1
+LR_C0.15
+SVM_linear
+
+
 
 ### Performance Metrics
 | Metric | Score |
 |--------|-------|
-| ROC-AUC | 0.719 |
+| ROC-AUC | 0.721 |
 | Accuracy | 66.4% |
-| F1 Score | 0.667 |
+| F1 Score | 0.664 |
 | Brier Score | 0.214 |
 
 ---
@@ -122,6 +128,8 @@ ufc_prediction_model/
 - **Stats Comparison:** Expandable table showing fighter statistics side-by-side
 - **Real-time Predictions:** Instant results powered by XGBoost
 
+*****Disclaimer: When fighter names are swapped between Fighter A and Fighter B, odds may slightly change, we recommend averaging win percentages of both fighters in both Fighter A and B slots to get an accurate percentage to use as a prediction baseline.*****
+
 ---
 
 ## Technologies Used
@@ -163,7 +171,7 @@ This project is for educational purposes as part of CIS 508 at Arizona State Uni
 
 ## Acknowledgments
 
-- UFC for publicly available fight statistics
+- UFC and Kaggle for publicly available fight statistics
 - Anthropic Claude for development assistance
 - Arizona State University CIS 508 course
 
